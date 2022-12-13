@@ -11,16 +11,52 @@
      <script>typeof(dojo) === "undefined" && document.write(unescape('%3Cscriptsrc="js/libs/dojo/dojo.js"%3E%3C/script%3E'))</script>
  
   </head>
-  <body>
-    <h1>Real solution will be submitted by the end of the week :)</h1>
 
-    <div id="msg"><h1>Hello</h1></div>
-    
-    <script>
-      require(["dojo/dom", "dojo/dom-construct"],function(dom,construct){
-          var msg = dom.byId("msg");
-         msg.innerHTML = "Hello Dojo!";            
+<body>
+  <h1>Learn Dojo Toolkit !</h1>
+  <div>Today is: <span id="day"></span></div>
+  
+  <script>
+      require(["dojo/ready", "dojo/dom", "dojo/dom-construct","dojo/_base/window"],function(ready,dom,construct,win){
+
+          // When the dom is ready
+          ready(function(){                   // Uses dojo/ready
+              var day = dom.byId("day");      //Get <span id="day"> uses dojo/dom
+              //The week day
+              var d = new Date();
+              var weekDay = null;
+              switch(d.getDay()){
+                  case 0:
+                      weekDay = 'Sunday';
+                      break;
+                  case 1:
+                      weekDay = 'Monday';
+                      break;
+                  case 2:
+                      weekDay = 'Tuesday';
+                      break;
+                  case 3:
+                      weekDay = 'Wednesday';
+                      break;
+                  case 4:
+                      weekDay = 'Thursday';
+                      break;
+                  case 5:
+                      weekDay = 'Friday';
+                      break;
+                  case 6:
+                      weekDay = 'Saturday';
+                      break;
+              }
+              day.innerHTML = weekDay;   
+              var node = construct.create("h2",{
+                  innerHTML: "Happy " + weekDay + " !"
+                  },
+                  win.body()
+              );  
+          });
       });
   </script>
-  </body>
+</body>
+</html>
 </html>
