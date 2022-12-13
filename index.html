@@ -9,55 +9,76 @@
      <!--Dojo-->
      <script src="https://ajax.googleapis.com/ajax/libs/dojo/1.7.12/dojo/dojo.js"></script>
      <script>typeof(dojo) === "undefined" && document.write(unescape('%3Cscriptsrc="js/libs/dojo/dojo.js"%3E%3C/script%3E'))</script>
- 
+     <!-- jQuery -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+     <script>
+      $(document).ready(function(){
+        $("p").click(function(){
+          $(this).hide();
+        });
+      });
+    </script>
   </head>
 
+
 <body>
-  <h1>1. Library: Dojo Toolkit</h1>
-  <div>Today is: <span id="day"></span></div>
-  <script>
-      require(["dojo/ready", "dojo/dom", "dojo/dom-construct","dojo/_base/window"],function(ready,dom,construct,win){
+  <div>
+    <h1>1. Library: Dojo Toolkit</h1>
+    <div>Today is: <span id="day"></span></div>
+    <script>
+        require(["dojo/ready", "dojo/dom", "dojo/dom-construct","dojo/_base/window"],function(ready,dom,construct,win){
 
-          // When the dom is ready
-          ready(function(){                   // Uses dojo/ready
-              var day = dom.byId("day");      //Get <span id="day"> uses dojo/dom
-              //The week day
-              var d = new Date();
-              var weekDay = null;
-              switch(d.getDay()){
-                  case 0:
-                      weekDay = 'Sunday';
-                      break;
-                  case 1:
-                      weekDay = 'Monday';
-                      break;
-                  case 2:
-                      weekDay = 'Tuesday';
-                      break;
-                  case 3:
-                      weekDay = 'Wednesday';
-                      break;
-                  case 4:
-                      weekDay = 'Thursday';
-                      break;
-                  case 5:
-                      weekDay = 'Friday';
-                      break;
-                  case 6:
-                      weekDay = 'Saturday';
-                      break;
-              }
-              day.innerHTML = weekDay;   
-              var node = construct.create("h2",{
-                  innerHTML: "Happy " + weekDay + " !"
-                  },
-                  win.body()
-              );  
-          });
-      });
-  </script>
+            // When the dom is ready
+            ready(function(){                   // Uses dojo/ready
+                var day = dom.byId("day");      //Get <span id="day"> uses dojo/dom
+                //The week day
+                var d = new Date();
+                var weekDay = null;
+                switch(d.getDay()){
+                    case 0:
+                        weekDay = 'Sunday';
+                        break;
+                    case 1:
+                        weekDay = 'Monday';
+                        break;
+                    case 2:
+                        weekDay = 'Tuesday';
+                        break;
+                    case 3:
+                        weekDay = 'Wednesday';
+                        break;
+                    case 4:
+                        weekDay = 'Thursday';
+                        break;
+                    case 5:
+                        weekDay = 'Friday';
+                        break;
+                    case 6:
+                        weekDay = 'Saturday';
+                        break;
+                }
+                day.innerHTML = weekDay;   
+                // var node = construct.create("h2",{
+                //     innerHTML: "Happy " + weekDay + " !"
+                //     },
+                //     win.body()
+                // );  
+            });
+        });
+    </script>
+  </div>
 
-  
+  <div>
+    <h1>2. Library: jQuery</h1>
+    <p>If you click on me, I will disappear.</p>
+    <p>Click me away!</p>
+    <p>Click me too!</p>
+  </div>
+
+  <div>
+    
+  </div>
+
 </body>
 </html>
 </html>
