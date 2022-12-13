@@ -5,8 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>JavaScript</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+     <!--Dojo-->
+     <script src="https://ajax.googleapis.com/ajax/libs/dojo/1.7.12/dojo/dojo.js"></script>
+     <script>typeof(dojo) === "undefined" && document.write(unescape('%3Cscriptsrc="js/libs/dojo/dojo.js"%3E%3C/script%3E'))</script>
+ 
   </head>
   <body>
     <h1>Real solution will be submitted by the end of the week :)</h1>
+
+    <div id="msg"><h1>Hello</h1></div>
+    
+    <script>
+      require(["dojo/dom", "dojo/dom-construct"],function(dom,construct){
+          var msg = dom.byId("msg");
+         msg.innerHTML = "Hello Dojo!";            
+      });
+  </script>
   </body>
 </html>
